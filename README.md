@@ -34,3 +34,7 @@ and hit the play button (cmd-return), then you should get this on the right side
   }
 }
 ```
+
+engine dashboard
+
+https://engine.apollographql.com/service/kassadube-6004
