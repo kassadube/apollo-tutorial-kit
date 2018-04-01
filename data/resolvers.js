@@ -1,4 +1,4 @@
-import { Author, View } from './connectors';
+import { Author, View, getFortuneCookie } from './connectors';
 
 const resolvers = {
   Query: {
