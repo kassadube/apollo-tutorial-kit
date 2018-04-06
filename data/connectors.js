@@ -28,6 +28,7 @@ AuthorModel.hasMany(PostModel);
 PostModel.belongsTo(AuthorModel);
 
 const OptionModel = db.define('option', {
+  id: { type:Sequelize.BIGINT, primaryKey: true, autoIncrement: true},
   contract: { type: Sequelize.BIGINT },
   type: { type: Sequelize.STRING },
   period: { type: Sequelize.STRING },
@@ -76,7 +77,26 @@ db.sync({ force: true }).then(() => {
       });
     });
   });
-});
+}).then(() => 
+  Option.create(
+    {
+      "contract": 1440,
+      "expiration": new Date(2018, 4, 16),
+      "period": "M",
+      "type": "P"
+    }
+  )
+).then(() => 
+  Option.create(
+  {
+    "contract": 1440,
+      "expiration": new Date(2018, 4, 16),
+      "period": "M",
+      "type": "C"
+  }
+));
+
+
 
 const Author = db.models.author;
 const Post = db.models.post;

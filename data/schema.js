@@ -32,6 +32,7 @@ type Post {
   author: Author
 }
 type Option {
+  id: Int
   contract: Int
   type: String
   period: String
