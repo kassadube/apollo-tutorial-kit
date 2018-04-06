@@ -14,6 +14,7 @@ const resolvers = {
   },
   Author: {
     posts(author) {
+      console.log('hhhehh');
       return author.getPosts();
     }
   },

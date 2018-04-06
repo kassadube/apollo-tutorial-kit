@@ -27,6 +27,16 @@ const PostModel = db.define('post', {
 AuthorModel.hasMany(PostModel);
 PostModel.belongsTo(AuthorModel);
 
+const OptionModel = db.define('option', {
+  contract: { type: Sequelize.BIGINT },
+  type: { type: Sequelize.STRING },
+  period: { type: Sequelize.STRING },
+  month: { type: Sequelize.BIGINT },
+  week: { type: Sequelize.BIGINT },
+  expiration: { type: Sequelize.DATE },
+});
+
+
 const mongo = Mongoose.connect('mongodb://localhost/views', {
   useMongoClient: true
 });
