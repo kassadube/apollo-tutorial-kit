@@ -80,5 +80,6 @@ db.sync({ force: true }).then(() => {
 
 const Author = db.models.author;
 const Post = db.models.post;
+const Option = db.models.option
 
-export { Author, Post, View, FortuneCookie};
+export { Author, Post, View, FortuneCookie, Option};

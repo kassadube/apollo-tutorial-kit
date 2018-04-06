@@ -1,13 +1,22 @@
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
+import { GraphQLScalarType } from 'graphql/type';
+import { Kind } from 'graphql/language';
+import resolvers from './resolvers';
 //import mocks from './mocks';
 
-import resolvers from './resolvers';
 
 const typeDefs = `
+scalar DateTime
+
 type Query {
   author(firstName: String, lastName: String): Author
   allAuthors: [Author]
+  allOptions: [Option]  
   getFortuneCookie: String @cacheControl(maxAge: 5)
+}
+# The mutation root type, used to define all mutations.
+type Mutation {
+  addOption(contract: Int, type: String, period: String, expiration: DateTime) : Option
 }
 type Author {
   id: Int
@@ -21,6 +30,12 @@ type Post {
   text: String
   views: Int
   author: Author
+}
+type Option {
+  contract: Int
+  type: String
+  period: String
+  expiration: DateTime
 }
 `;
 
